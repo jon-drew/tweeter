@@ -19,7 +19,7 @@ $('.new-tweet form').submit(function(event){
       datatype: 'string',
       data: newTweet,
       success: function () {
-        loadTweets([tweet])
+        loadTweets()
       }
     })
   }
@@ -49,6 +49,16 @@ function loadTweets() {
 
 loadTweets();
 
+$('#compose').click(function() {
+  if ($('section.new-tweet').is(":hidden")) {
+    $('section.new-tweet').slideDown("slow", function(){
+    })
+    $('textarea').focus()
+  } else {
+    $('section.new-tweet').slideUp("slow", function(){
+    })
+  }
+})
 
 });
 
