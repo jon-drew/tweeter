@@ -60,10 +60,33 @@ function renderTweets(tweets) {
 }
 
 function createTweetElement(tweet) {
-  var $tweet = $('<article>').addClass('tweet').append($('<header>').text(data[tweet].user.name))
+  let $tweet = $('<article>').addClass('tweet').append($('<header>').text(data[tweet].user.name))
   .append($('<body>').text(data[tweet].content.text)).append($('<footer>').text(data[tweet].created_at))
   return $tweet;
 }
 
-renderTweets(data);
+function loadTweets(tweets) {
+  $.ajax( {
+    url: 'index.html',
+    method: 'GET',
+    success: function (indexHTML) {
+      renderTweets(tweets);
+    }
+  })
+}
+
+loadTweets(data);
+
+
 });
+
+
+
+
+
+
+
+
+
+
+
