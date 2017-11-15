@@ -60,8 +60,8 @@ function renderTweets(tweets) {
 }
 
 function createTweetElement(tweet) {
-  var $tweet = $('<article>').addClass('tweet').add($('<header>').text(data[tweet].user.name))
-  .add($('<body>').text(data[tweet].content.text)).add($('<footer>').text(data[tweet].created_at))
+  var $tweet = $('<article>').addClass('tweet').append($('<header>').text(data[tweet].user.name))
+  .append($('<body>').text(data[tweet].content.text)).append($('<footer>').text(data[tweet].created_at))
   return $tweet;
 }
 

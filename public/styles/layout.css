@@ -25,13 +25,43 @@ body {
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
 
-main {
-  width: 450px;
+.container {
   margin: auto;
+  width: 70%;
   background-color: white;
-  padding-top: 100px;
+  padding-top: 15%;
 }
 
 .tweets-container {
-  background-color: grey;
+  margin: auto;
+  width: 80%;
+  border-radius: 5px;
+  background-color: white;
 }
+
+.tweet {
+  margin: auto;
+  border-radius: 5px;
+  padding-left: 2em;
+  padding-right: 2em;
+  background-color: white;
+  border: 1px solid gray;
+  margin-bottom: 3%;
+}
+
+.tweet header {
+  background-color: #d3d3d3;
+  font-weight: bold;
+}
+
+.tweet body {
+  background-color: white;
+  padding: 10%;
+}
+
+.tweet footer {
+  font-size: .8em;
+  border-top: 1px solid #d3d3d3;
+}
+
+
