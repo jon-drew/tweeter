@@ -7,17 +7,19 @@ $(function() {
 
 $('.new-tweet form').submit(function(event){
   event.preventDefault();
-  if ($(this).val() === "") {
-    console.log("hi")
+  var newTweet = $(this).serialize();
+  if ($('.new-tweet form textarea').val() === "") {
+    $('.new-tweet form').append($('<footer>').text("Tweets cannot be blank."))
+  } else if (($('.new-tweet form textarea').val().length > 140)) {
+    $('.new-tweet form').append($('<footer>').text("Tweets cannot be larger than 140 characters."))
   } else {
-    var newTweet = $(this).serialize();
     $.ajax( {
       url: '/tweets',
       method: 'POST',
       datatype: 'string',
       data: newTweet,
       success: function () {
-
+        loadTweets([tweet])
       }
     })
   }
@@ -25,7 +27,7 @@ $('.new-tweet form').submit(function(event){
 
 function renderTweets(tweets) {
   for (tweet of tweets) {
-    $(".tweets-container").append(createTweetElement(tweet))
+    $(".tweets-container").prepend(createTweetElement(tweet))
   }
 }
 

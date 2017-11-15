@@ -1,5 +1,6 @@
 $(document).ready(function(){
   $(".new-tweet form textarea").keyup(function(){
-    ($(this).parent().children("span.counter").text(140-$(this).val().length))
+    ($(this).parent().children("span.counter").text(140-$(this).val().length)),
+    ($('.new-tweet form footer').text(""))
   })
 });
