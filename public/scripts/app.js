@@ -26,7 +26,7 @@ $('.new-tweet form').submit(function(event){
 })
 
 function renderTweets(tweets) {
-  for (tweet of tweets) {
+  for (let tweet of tweets) {
     $(".tweets-container").prepend(createTweetElement(tweet))
   }
 }
@@ -61,12 +61,6 @@ $('#compose').click(function() {
 })
 
 });
-
-
-
-
-
-
 
 
 
