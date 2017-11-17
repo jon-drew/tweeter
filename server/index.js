@@ -23,6 +23,7 @@ MongoClient.connect(MONGODB_URI, (err, db) => {
 
   console.log(`Connected to mongodb: ${MONGODB_URI}`);
 
+
 // The `data-helpers` module provides an interface to the database of tweets.
 // This simple interface layer has a big benefit: we could switch out the
 // actual database it uses and see little to no changes elsewhere in the code
@@ -43,4 +44,6 @@ app.listen(PORT, () => {
   console.log("Example app listening on port " + PORT);
 });
 
+
 });
+
