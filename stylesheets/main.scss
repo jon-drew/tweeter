@@ -1,0 +1,130 @@
+/*
+ * http://www.paulirish.com/2012/box-sizing-border-box-ftw/
+ * https://css-tricks.com/international-box-sizing-awareness-day/
+ * Do not modify these two selectors, please
+ */
+
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+/*
+ * Global layout stuff
+ */
+
+body {
+  color: #244751;
+  background-color: #eee;
+  font-family: 'Roboto Condensed', sans-serif; }
+
+/*
+ * Additional CSS can be defined below or in other CSS files, as per instructions
+ */
+
+main {
+  margin: auto;
+  width: 60%;
+  background-color: white;
+  padding-top: 10%; }
+
+.tweets-container {
+  margin: auto;
+  width: 80%;
+  border-radius: 5px;
+  background-color: white;
+  .tweet header {
+    background-color: #d3d3d3;
+  }
+}
+
+.tweet {
+  margin: auto;
+  border-radius: 5px;
+  background-color: white;
+  opacity: .8;
+  border: 1px solid gray;
+  margin-bottom: 3%;
+  header {
+    h1 {
+      display: inline;
+      font-size: 1.5em;
+      border-radius: 5px; }
+    span {
+      margin-bottom: 10%;
+      font-size: .8em; }
+    img {
+      border-radius: 5px;
+      padding-left: 2%;
+      padding-top: 2%; }
+  }
+  body {
+    background-color: white;
+    padding: 10%;
+    word-wrap: break-word; }
+  footer {
+    font-size: .8em;
+    border-top: 1px solid #d3d3d3; }
+}
+
+.tweet:hover {
+  border-color: black;
+  opacity: 1;
+}
+
+#nav-bar {
+  position: fixed;
+  z-index: 1;
+  height: 80px;
+  padding-left: 2em;
+  padding-right: 2em;
+  width: 100%;
+  background-color: #00a087;
+  color: #e8fdff;
+  font-size: 200%;
+  line-height: 80px;
+  .logo {
+    width: 80px;
+    height: 80px;
+    float: left;
+    padding-right: 10px; }
+  button {
+    position: absolute;
+    color: #00a087;
+    opacity: .8;
+    border-radius: 5px;
+    border-color: black;
+    right: 8%;
+    height: 85%;
+    margin-top: .5%;
+    font-size: .9em;
+  }
+}
+
+#nav-bar button:hover {
+  opacity: 1;
+  color: black;
+}
+
+.new-tweet {
+  margin: auto;
+  width: 80%;
+  border-radius: 5px;
+  padding-left: 2em;
+  padding-right: 2em;
+  background-color: #d3d3d3;
+  border: 1px solid gray;
+  textarea {
+  display: block;
+  margin: auto;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px; }
+  .counter {
+  margin-left: 90%;
+  font-size: .7em;
+  font-weight: bold; }
+}
+
