@@ -31,32 +31,16 @@ function renderTweets(tweets) {
   }
 }
 
-function unixTimeConverter(unixTime) {
-   const created = new Date(unixTime);
-   const seconds = Math.floor((Date.now() - created) / 1000);
-   let interval = Math.floor(seconds / 31536000);
-
-   if (interval > 1) {
-       return interval + ' years';
-   }
-   interval = Math.floor(seconds / 2592000);
-   if (interval > 1) {
-       return interval + ' months';
-   }
-   interval = Math.floor(seconds / 86400);
-   if (interval > 1) {
-       return interval + ' days';
-   }
-   interval = Math.floor(seconds / 3600);
-   if (interval > 1) {
-       return interval + ' hours';
-   }
-   interval = Math.floor(seconds / 60);
-   if (interval > 1) {
-       return interval + ' minutes';
-   }
-   return Math.floor(seconds) + ' seconds';
-};
+function unixTimeConverter(tweetEpochDate) {
+  let readableDate = (Date.now() - tweetEpochDate) / 60000;
+  if (readableDate < 60) {
+    return `${Math.floor(readableDate)} minutes ago.`;
+  } else if (readableDate < 1440) {
+    return `${Math.floor(readableDate/60)} hours ago.`;
+  } else {
+    return `${Math.floor(readableDate/1440)} days ago.`;
+  }
+}
 
 function createTweetElement(tweet) {
   let $tweet = $('<article>').addClass('tweet')
@@ -64,7 +48,6 @@ function createTweetElement(tweet) {
                                  `<h1> ${tweet.user.name} </h1>`, `<span> ${tweet.user.handle} </span>`))
     .append($('<body>').text(tweet.content.text))
     .append($('<footer>').text(unixTimeConverter(tweet.created_at)))
-
   return $tweet;
 }
 

@@ -113,3 +113,5 @@ main {
     margin-left: 90%;
     font-size: .7em;
     font-weight: bold; }
+  .new-tweet .over140 {
+    color: red; }

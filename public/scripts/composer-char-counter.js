@@ -1,6 +1,6 @@
 $(document).ready(function(){
-  $(".new-tweet form textarea").keyup(function(){
-    ($(this).parent().children("span.counter").text(140-$(this).val().length)),
-    ($('.new-tweet form footer').text(""))
-  })
-});
+    $(".new-tweet textarea").on('keyup', function(event){
+      ($('.counter').text(140-$(this).val().length)).toggleClass('over140', $(this).val().length > 140);
+    })
+  }
+);
