@@ -26,15 +26,20 @@ $('.new-tweet form').submit(function(event){
 })
 
 function renderTweets(tweets) {
+  $('.tweets-container').empty();
   for (let tweet of tweets) {
     $('.tweets-container').prepend(createTweetElement(tweet))
   }
 }
 
+// Manual adjustments needed to be made to account for system delays
 function unixTimeConverter(tweetEpochDate) {
   let readableDate = (Date.now() - tweetEpochDate) / 60000;
-  if (readableDate < 60) {
-    return `${Math.floor(readableDate)} minutes ago.`;
+
+  if (readableDate - 17 < 1) {
+    return 'Less than a minute ago.';
+  } else if (readableDate < 60) {
+    return `${Math.floor(readableDate)-14} minutes ago.`;
   } else if (readableDate < 1440) {
     return `${Math.floor(readableDate/60)} hours ago.`;
   } else {
@@ -47,7 +52,11 @@ function createTweetElement(tweet) {
     .append($('<header>').append(`<img src=" ${tweet.user.avatars['small']} " class="avatar">`,
                                  `<h1> ${tweet.user.name} </h1>`, `<span> ${tweet.user.handle} </span>`))
     .append($('<body>').text(tweet.content.text))
-    .append($('<footer>').text(unixTimeConverter(tweet.created_at)))
+    .append($('<footer>').append(unixTimeConverter(tweet.created_at),
+                                              '<img class="icon" src="/images/heart.png"/>',
+                                              '<img class="icon" src="/images/flag.png"/>',
+                                              '<img class="icon" src="/images/retweet.png"/>'))
+    //.
   return $tweet;
 }
 
